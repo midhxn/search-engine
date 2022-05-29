@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes as Switch, Route,Navigation as Redirect} from 'react-router-dom';
+import { Routes as Switch, Route,Navigate as Redirect} from 'react-router-dom';
 
 export const Routes = () =>{
     return(
