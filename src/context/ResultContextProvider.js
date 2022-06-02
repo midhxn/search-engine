@@ -4,5 +4,6 @@ const resultContext=createContext();
 const baseUrl = '';
 
 export const ResultContextProvide =()=>{
-    
+  const [results,setResults] = useState([]);
+  const [isLoading,setIsLoading]  
 }
