@@ -1,9 +1,9 @@
 import React,{createContext,useContext,useState} from 'react';
 
-const resultContext=createContext();
+const ResultContext=createContext();
 const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1/search/q=elon+musk';
 
-export const ResultContextProvide =({children})=>{
+export const ResultContextProvider =({children})=>{
   const [results,setResults] = useState([]);
   const [isLoading,setIsLoading] = useState(false);
   const [searchTerm,setSearchTerm] =  useState('');
@@ -22,6 +22,19 @@ export const ResultContextProvide =({children})=>{
             'X-RapidAPI-Key': 'ee5692c164msh705eae3a256ad7dp19e3d5jsna3f62b014628'
 
           }
-      })
+      });
+
+      const data = await response.json();
+
+      setResults(data);
+      setIsLoading(false);
   }
+   return (
+       <ResultContext.Provider value={{getResults,results,searchTerm,setSearchTerm,isLoading,}}>
+            {children}
+       </ResultContext.Provider>
+   )
+
 }
+
+export const useResultContext = () => useContext(ResultContext);
