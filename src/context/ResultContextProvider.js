@@ -1,7 +1,7 @@
 import React,{createContext,useContext,useState} from 'react';
 
 const ResultContext=createContext();
-const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1/search/q=elon+musk';
+const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 
 export const ResultContextProvider =({children})=>{
   const [results,setResults] = useState([]);
@@ -19,12 +19,13 @@ export const ResultContextProvider =({children})=>{
             'X-User-Agent': 'desktop',
             'X-Proxy-Location': 'EU',
             'X-RapidAPI-Host': 'google-search3.p.rapidapi.com',
-            'X-RapidAPI-Key': ''
+            'X-RapidAPI-Key': 'ee5692c164msh705eae3a256ad7dp19e3d5jsna3f62b014628'
 
           }
       });
 
       const data = await response.json();
+
 
       setResults(data);
       setIsLoading(false);
