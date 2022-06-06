@@ -8,11 +8,15 @@ import { ResultContextProvider } from './context/ResultContextProvider';
 import App from './App';
 import './global.css';
 
-ReactDOM.render(
+
+import { createRoot } from 'react-dom/client';
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
 <ResultContextProvider>
     <Router>
         <App />
     </Router>,
 </ResultContextProvider>,
-document.getElementById('root')
 );
